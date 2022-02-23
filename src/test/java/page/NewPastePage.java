@@ -12,7 +12,7 @@ public class NewPastePage extends GeneralPage {
 
     private final By newPasteField = By.xpath("//*[@id='postform-text']");
     private final By pasteExpirationList = By.id("select2-postform-expiration-container");
-    private final By pasteExpirationSelection = By.xpath("//*[contains(@id, '10M')]");
+    private final By pasteExpirationSelection = By.xpath("//li[contains(text(), '10 Minutes')]");
     private final By pasteNameField = By.id("postform-name");
     private final By createNewPasteButton = By.xpath("//button[contains(text(), 'Create New Paste')]");
     private final By expectedNewPasteCondition = By.xpath("//div[@class='notice -success -post-view']");
@@ -29,9 +29,6 @@ public class NewPastePage extends GeneralPage {
     public void selectPasteExpiration(){
         driver.findElement(pasteExpirationList)
                 .click();
-        new WebDriverWait(driver , 10)
-                .until(ExpectedConditions
-                        .presenceOfAllElementsLocatedBy(pasteExpirationSelection));
         driver.findElement(pasteExpirationSelection)
                 .click();
     }
@@ -44,9 +41,6 @@ public class NewPastePage extends GeneralPage {
     public void clickCreateNewPasteButton(){
         driver.findElement(createNewPasteButton)
                 .click();
-        new WebDriverWait(driver , 10)
-                .until(ExpectedConditions
-                        .presenceOfAllElementsLocatedBy(expectedNewPasteCondition));
     }
 
     public void expectedNewPasteCreated() {

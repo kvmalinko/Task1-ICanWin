@@ -17,12 +17,6 @@ public class NewPasteTest extends PreconditionTest {
         newPastePage.clickCreateNewPasteButton();
         newPastePage.expectedNewPasteCreated();
 
-
-        Assert.assertTrue(newPastePage()==0, "New Paste has NOT been created");
         }
-
-    private int newPastePage() {
-        return 0;
-    }
 
 }
